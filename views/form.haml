@@ -1,0 +1,47 @@
+!!!
+%html
+  %head
+    %script{src: "https://js.stripe.com/v2/"}
+    %script{src: "js/jquery.js"}
+    %script{src: "js/payment.js"}
+  %body
+    %form#payment-form{action: "/pay", method: "POST"}
+      %span.payment-errors
+      .form-row
+        %label Email
+        %input{name: "email", type: "email"}
+      .form-row
+        %label Name
+        %input{name: "name", type: "text"}
+      .form-row
+        %label Address
+        %input{name: "address", type: "text"}
+      .form-row
+        %label City
+        %input{name: "city", type: "text"}
+      .form-row
+        %label State
+        %input{name: "state", type: "text"}
+      .form-row
+        %label ZIP
+        %input{name: "zip", type: "text", length: 5}
+      .form-row
+        %label Amount
+        %select#amount{name: "amount", type: "number"}
+          %option{value: "1400"} 2 8oz. bags ($14.00)
+          %option{value: "2000"} 4 8oz. bags ($20.00)
+      .form-row
+        %label
+          %span Card Number
+          %input{"data-stripe" => "number", size: "20", type: "text"}
+      .form-row
+        %label
+          %span CVC
+          %input{"data-stripe" => "cvc", size: "4", type: "text"}
+      #expiration.form-row.expiry
+        %label
+          %span Expiration (MM/YYYY)
+          %input#exp-month{"data-stripe" => "exp-month", name: "expiration-month", size: "2", type: "text"}
+          %span /
+          %input#exp-year{"data-stripe" => "exp-year", name: "expiration-year", size: "4", type: "text"}
+      %button{type: "submit"} Submit Payment
