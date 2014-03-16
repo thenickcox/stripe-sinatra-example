@@ -208,3 +208,20 @@ button, a.buy {
   button:hover, a.buy:hover {
     background: #532500;
     text-decoration: none; }
+
+/* Errors */
+ul.parsley-errors-list {
+  padding-left: 0;
+  margin-left: 0;
+  list-style: none;
+  font-size: 88%;
+  color: #ca2e2d;
+  font-family: Arial; }
+
+input.parsley-error {
+  border: 1px solid #ca2e2d; }
+
+button[disabled='disabled'] {
+  opacity: 0.5; }
+  button[disabled='disabled']:hover {
+    background: #5d2f08; }

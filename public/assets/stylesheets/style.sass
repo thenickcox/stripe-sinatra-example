@@ -2,6 +2,7 @@ $yellow: rgb(250, 241, 210)
 $brown: rgb(93,47,8)
 $orange: rgb(173,129,0)
 $slate: rgb(113,127,141)
+$error: rgb(202,46,45)
 
 @import 'bootstrap.min.css'
 @import 'bootstrap-theme.min.css'
@@ -162,8 +163,8 @@ footer
 
 .payment-errors
   background: #f2dede
-  border: 1px solid rgb(202,46,45)
-  color: rgb(202,46,45)
+  border: 1px solid $error
+  color: $error
   padding: 15px 0 15px 15px
   display: none
   width: 97.3%
@@ -212,3 +213,21 @@ button, a.buy
   &:hover
     background: rgb(93,47,8) - 10
     text-decoration: none
+
+/* Errors
+
+ul.parsley-errors-list
+  padding-left: 0
+  margin-left: 0
+  list-style: none
+  font-size: 88%
+  color: $error
+  font-family: Arial
+
+input.parsley-error
+  border: 1px solid $error
+
+button[disabled='disabled']
+  opacity: 0.5
+  &:hover
+    background: $brown

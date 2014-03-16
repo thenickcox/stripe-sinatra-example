@@ -38,7 +38,7 @@ class App < Sinatra::Base
       amount: amount,
       currency: "usd",
       card: params[:stripeToken],
-      description: "test payment"
+      description: "Slow Coffee"
     )
     haml :confirmation
   end

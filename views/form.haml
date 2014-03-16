@@ -2,7 +2,7 @@
   .row
     .span12.checkout
       %h1 Checkout
-      %p Thanks for buying some exqusite coffee.
+      %p Thanks for buying some exquisite coffee.
       %p
         Note that your card information will be transmitted securely to and processed by
         = succeed ',' do
@@ -11,32 +11,34 @@
       %p
         %em Please note: This will charge your card only once for your chosen purchase amount. This is only for the pilot month; subscriptions are not available yet.
 
-      %form.form-horizontal#payment-form{action: "/pay", method: "POST", role: 'form'}
+
+      %p All fields are required.
+      %form.form-horizontal#payment-form{action: "/pay", method: "POST", role: 'form', "data-parsley-validate" => ''}
         .payment-errors.col-md-12
         .form-group
           .col-sm-2
             %label Name
           .col-sm-10
-            %input{name: "name", type: "text", class: 'form-control'}
+            %input{name: "name", type: "text", class: 'form-control', required: ''}
         .form-group
           .col-sm-2
             %label Email
           .col-sm-10
-            %input{name: "email", type: "email", class: 'form-control'}
+            %input{name: "email", type: "email", class: 'form-control', required: ''}
         .form-group
           .col-sm-2
             %label Address
           .col-sm-10
-            %input{name: "address", type: "text", class: 'form-control'}
+            %input{name: "address", type: "text", class: 'form-control', required: ''}
         .form-group
           .col-sm-2
             %label City/State/ZIP
           .col-sm-6
             %label.sr-only City
-            %input{name: "city", type: "text", class: 'form-control', placeholder: 'City'}
+            %input{name: "city", type: "text", class: 'form-control', placeholder: 'City', required: ''}
           .col-sm-2
             %label.sr-only State
-            %select{name: "state"}
+            %select{name: "state", required: ''}
               %option{selected: "selected", value: ""} Select a State
               %option{value: "AL"} Alabama
               %option{value: "AK"} Alaska
@@ -91,7 +93,7 @@
               %option{value: "WY"} Wyoming
           .col-sm-2
             %label.sr-only ZIP
-            %input{name: "zip", type: "text", pattern: '\d*', size: 5, class: 'form-control', placeholder: 'ZIP code' }
+            %input{name: "zip", type: "text", pattern: '\d*', size: 5, class: 'form-control', placeholder: 'ZIP code', required: '' }
         .form-group
           .col-sm-2
             %label Order
@@ -104,10 +106,10 @@
             %label Credit Card
           .col-sm-5
             %label.sr-only Credit Card Number
-            %input{"data-stripe" => "number", size: "20", type: "text", pattern: '\d*', placeholder: 'ex: 4242424242424242', name: 'card-number', class: 'form-control'}
+            %input{"data-stripe" => "number", size: "20", type: "text", pattern: '\d*', placeholder: 'ex: 4242424242424242', name: 'card-number', required: '', 'data-parsley-length' => '[15,20]', class: 'form-control'}
           .col-sm-2
             %label.sr-only Credit Card CVC
-            %input{"data-stripe" => "cvc", size: "4", type: "text", pattern: '\d*', placeholder: 'CVC', class: 'form-control', name: 'cc-cvc' }
+            %input{"data-stripe" => "cvc", size: "4", type: "text", pattern: '\d*', placeholder: 'CVC', class: 'form-control', name: 'cc-cvc', required: '', 'data-parsley-length' => '[3,4]' }
           #expiration.expiry.col-sm-3
             %label.sr-only
             %select#exp-month{"data-stripe" => "exp-month", name: "expiration-month"}
@@ -118,3 +120,4 @@
               - (2014..2025).each do |year|
                 %option{ value: "#{year}"} #{year}
         %button{type: "submit"} Place Order
+

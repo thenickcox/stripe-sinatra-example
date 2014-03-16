@@ -1,7 +1,6 @@
 Stripe.setPublishableKey('pk_test_nnQ7qfDlvSLZe4Iv3J1HLfbd');
 var stripeResponseHandler = function(status, response) {
   var $form = $('#payment-form');
-  console.log(response);
   if (response.error) {
     // Show the errors on the form
     $form.find('.payment-errors').slideDown(50).text(response.error.message);
@@ -17,6 +16,10 @@ var stripeResponseHandler = function(status, response) {
 };
 
 jQuery(function($) {
+  $('input,select').blur(function(){
+    $(this).parsley().validate();
+  });
+
   $('#payment-form').submit(function(e) {
     var $form = $(this);
 
