@@ -8,8 +8,7 @@ gem 'money'
 gem 'sinatra-asset-pipeline'
 gem 'dotenv'
 gem 'mandrill-api'
-gem 'bourbon'
-gem 'neat'
+gem 'stripe_event'
 
 group :development, :test do
   gem 'rspec'
@@ -18,5 +17,6 @@ group :development, :test do
   gem 'launchy'
   gem 'poltergeist'
   gem 'selenium-webdriver'
+  gem 'webmock'
 end
 

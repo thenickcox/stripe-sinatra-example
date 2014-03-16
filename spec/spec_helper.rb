@@ -7,9 +7,10 @@ require 'capybara/rspec'
 require 'rack/test'
 require 'capybara/poltergeist'
 
+require 'webmock/rspec'
+
 set :environment, :test
 set :run, false
-set :raise_errors, true
 set :logging, false
 
 Capybara.app = App
