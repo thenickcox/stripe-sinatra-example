@@ -4,6 +4,9 @@
   display: table;
   content: " "; }
 
+strong {
+  color: #5d2f08; }
+
 .span12 {
   padding: 10px; }
 
@@ -22,37 +25,122 @@ body {
   display: inline-block;
   width: 100%; }
   .hero .header {
-    padding: 8em 0; }
+    padding: 13em 0; }
+    .hero .header p.btn-container a {
+      border: 1px solid white;
+      padding: 15px 80px;
+      font-size: 23px;
+      color: white;
+      font-style: normal; }
+      .hero .header p.btn-container a:hover {
+        background: #faf1d2;
+        color: #5d2f08;
+        text-decoration: none;
+        font-style: italic; }
 
 .hero-inner h1 {
   margin: 0 auto;
-  font-size: 3.66em;
+  font-size: 3em;
   font-weight: 300;
   line-height: 1.1;
-  color: #faf1d2; }
+  color: #faf1d2;
+  text-align: center;
+  font-style: italic; }
 .hero-inner span {
   font-size: 70%;
   position: relative;
   bottom: 27px;
   right: 5px; }
-.hero-inner p {
+.hero-inner p.small {
   text-align: right;
   position: relative;
-  font-size: 13px;
+  font-size: 15px;
   position: relative;
-  top: 8em;
-  color: #ad8100; }
+  top: 13em;
+  color: #d3c0a5; }
+  .hero-inner p.small a {
+    color: #ad8100; }
 
-.subscription h1 {
-  text-align: center; }
+.explanation {
+  padding-bottom: 2em; }
+  .explanation h1 {
+    color: #ad8100;
+    margin: 2em 0; }
 
-.plan h3 {
-  text-align: center; }
+.subscription {
+  border-top: 1px solid #e2e2e2;
+  padding-top: 2em; }
+  .subscription p.pilot {
+    margin-top: 2em;
+    margin-bottom: 3em; }
+  .subscription h1 {
+    text-align: center; }
+
+.plan {
+  background-image: url("../images/bean-background.svg");
+  background-repeat: no-repeat;
+  padding-top: 110px;
+  padding-bottom: 30px; }
+  .plan h3 {
+    font-family: "Whitney Cond A", "Whitney Cond B";
+    font-weight: 600;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #9e7200;
+    font-size: 27px;
+    text-align: center; }
+  .plan p em {
+    color: #686868; }
+  .plan span.price {
+    font-family: "Numbers Depot A", "Numbers Depot B";
+    font-weight: 400;
+    font-style: normal;
+    background: #717f8d;
+    padding: 15px 5px;
+    border-radius: 200px;
+    color: white;
+    float: right;
+    position: relative;
+    bottom: 10px;
+    right: 10px; }
+    .plan span.price span.zeroes, .plan span.price span.dollars {
+      font-size: 50%;
+      position: relative;
+      bottom: 10px; }
+  .plan.first {
+    border-right: 1px solid #dedede;
+    background-position: 236px 0; }
+    @media screen and (max-width: 1200px) and (min-width: 992px) {
+      .plan.first {
+        background-position: 190px 0; } }
+    @media screen and (max-width: 991px) and (min-width: 768px) {
+      .plan.first {
+        background-position: 311px 0; } }
+    @media screen and (max-width: 767px) {
+      .plan.first {
+        background: none; } }
+  .plan.last {
+    background-position: -300px 0; }
+    @media screen and (max-width: 1200px) and (min-width: 1024px) {
+      .plan.last {
+        background-position: -347px 0; } }
+    @media screen and (max-width: 991px) and (min-width: 768px) {
+      .plan.last {
+        background-position: -222px 0; } }
+    @media screen and (max-width: 767px) {
+      .plan.last {
+        background: none; } }
 
 footer {
   text-align: center;
   padding: 2em 0;
-  margin-top: 3em 0 1em 0; }
+  margin: 3em 0 1em 0; }
+  footer a {
+    color: #ad8100; }
+    footer a:hover {
+      text-decoration: underline;
+      color: #9e7200; }
 
 /* Form */
 .form-group {
@@ -71,11 +159,21 @@ footer {
     float: left;
     width: 75px; }
 
+p.btn-container {
+  text-align: center;
+  margin: 2.5em 0 1em 0; }
+
 button, a.buy {
   background: #5d2f08;
-  padding: 8px 30px;
+  padding: 13px 50px;
+  margin: 1em auto;
+  font-size: 21px;
   color: white;
   border: none; }
+  @media screen and (max-width: 599px) {
+    button, a.buy {
+      width: 100%;
+      display: block; } }
   button:hover, a.buy:hover {
     background: #532500;
     text-decoration: none; }
