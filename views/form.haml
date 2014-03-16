@@ -32,7 +32,7 @@
             %input{name: "city", type: "text", class: 'form-control', placeholder: 'City'}
           .col-sm-2
             %label.sr-only State
-            %select{name: "State"}
+            %select{name: "state"}
               %option{selected: "selected", value: ""} Select a State
               %option{value: "AL"} Alabama
               %option{value: "AK"} Alaska
@@ -100,10 +100,10 @@
             %label Credit Card
           .col-sm-5
             %label.sr-only Credit Card Number
-            %input{"data-stripe" => "number", size: "20", type: "text", placeholder: 'ex: 4242424242424242', class: 'form-control'}
+            %input{"data-stripe" => "number", size: "20", type: "text", placeholder: 'ex: 4242424242424242', name: 'card-number', class: 'form-control'}
           .col-sm-2
             %label.sr-only Credit Card CVC
-            %input{"data-stripe" => "cvc", size: "4", type: "text", placeholder: 'CVC', class: 'form-control' }
+            %input{"data-stripe" => "cvc", size: "4", type: "text", placeholder: 'CVC', class: 'form-control', name: 'cc-cvc' }
           #expiration.expiry.col-sm-3
             %label.sr-only
             %select#exp-month{"data-stripe" => "exp-month", name: "expiration-month"}

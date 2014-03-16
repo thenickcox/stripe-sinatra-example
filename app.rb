@@ -22,7 +22,7 @@ class App < Sinatra::Base
     haml :form
   end
 
-  post "/confirmation" do
+  post "/pay" do
     amount = params[:amount].to_i
     Stripe::Customer.create(
       email: params[:email],
