@@ -4,7 +4,7 @@ var stripeResponseHandler = function(status, response) {
   console.log(response);
   if (response.error) {
     // Show the errors on the form
-    $form.find('.payment-errors').text(response.error.message);
+    $form.find('.payment-errors').slideDown(50).text(response.error.message);
     $form.find('button').prop('disabled', false);
   } else {
     // token contains id, last4, and card type

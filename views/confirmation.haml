@@ -1,9 +1,18 @@
-%p.thank-you
-  Thanks for your payment. You have been charged
-  = precede '$' do
-    = '%.2f' % (@charge.amount / 100.0)
-  to your
-  = @charge.card.type
-  ending in
-  = succeed '.' do
-    = @charge.card.last4
+.container
+  %h1 Thanks for your order.
+  %p.thank-you
+    Thanks for your payment. You have been charged
+    = precede '$' do
+      = '%.2f' % (@charge.amount / 100.0)
+    to your
+    = @charge.card.type
+    ending in
+    = succeed '.' do
+      = @charge.card.last4
+
+  %p
+    If you need anything at all, please don&rsquo;t hesitate to
+    = succeed '.'
+      %a{ href: '' } Contact Us
+
+  %p You should receive an email confirmation of your order shortly.

@@ -155,6 +155,15 @@ footer {
       color: #9e7200; }
 
 /* Form */
+.payment-errors {
+  background: #f2dede;
+  border: 1px solid #ca2e2d;
+  color: #ca2e2d;
+  padding: 15px 0 15px 15px;
+  display: none;
+  width: 97.3%;
+  margin: 1em 0; }
+
 label, .checkout h1 {
   color: #5d2f08; }
 
