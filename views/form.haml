@@ -106,7 +106,11 @@
             %input{"data-stripe" => "cvc", size: "4", type: "text", placeholder: 'CVC', class: 'form-control' }
           #expiration.expiry.col-sm-3
             %label.sr-only
-            %input#exp-month{"data-stripe" => "exp-month", name: "expiration-month", size: "2", type: "text", placeholder: '03', class: 'form-control'}
+            %select#exp-month{"data-stripe" => "exp-month", name: "expiration-month"}
+              - (1..12).each do |month|
+                %option{value: "#{month}"} #{month}
             %span /
-            %input#exp-year{"data-stripe" => "exp-year", name: "expiration-year", size: "4", type: "text", placeholder: '2016', class: 'form-control'}
+            %select#exp-year{"data-stripe" => "exp-year", name: "expiration-year"}
+              - (2014..2025).each do |year|
+                %option{ value: "#{year}"} #{year}
         %button{type: "submit"} Submit Payment

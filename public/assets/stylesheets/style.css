@@ -1,0 +1,72 @@
+@import url(bootstrap.min.css);
+@import url(bootstrap-theme.min.css);
+.span12 {
+  padding: 10px; }
+
+body {
+  color: #323232;
+  font-family: "Sentinel SSm A", "Sentinel SSm B";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 1.45em;
+  padding: 0;
+  margin: 0; }
+
+.hero {
+  background: url("../images/slow-coffee-header.jpg") center center no-repeat;
+  padding: 8em 0; }
+
+.hero-inner h1 {
+  margin: 0 auto;
+  font-size: 3.66em;
+  font-weight: 300;
+  line-height: 1;
+  color: #faf1d2; }
+.hero-inner span {
+  font-size: 70%;
+  position: relative;
+  bottom: 27px;
+  right: 5px; }
+.hero-inner p {
+  text-align: right;
+  position: relative;
+  font-size: 11px;
+  position: relative;
+  top: 8em; }
+
+.subscription h1 {
+  text-align: center; }
+
+.plan h3 {
+  text-align: center; }
+
+footer {
+  text-align: center;
+  padding: 2em 0;
+  margin-top: 3em 0 1em 0; }
+
+/* Form */
+.form-group {
+  margin: 5px 0;
+  display: inline-block;
+  width: 100%; }
+
+.expiry {
+  display: inline-block; }
+  .expiry span {
+    float: left; }
+  .expiry select[name='expiration-month'] {
+    float: left;
+    width: 50px; }
+  .expiry select[name='expiration-year'] {
+    float: left;
+    width: 75px; }
+
+button {
+  background: #5d2f08;
+  padding: 8px 30px;
+  color: white;
+  border: none; }
+  button:hover {
+    background: #532500; }
