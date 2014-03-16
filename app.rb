@@ -1,18 +1,28 @@
-require 'rubygems'
 require 'sinatra'
 require 'stripe'
 require 'haml'
+require 'logger'
+require 'money'
+require 'dotenv'
+require 'mandrill'
 
 Stripe.api_key = "sk_test_AzK176W5YbWlpbJIQR8VXRNU"
-set :views, File.dirname(__FILE__) + "/views"
 
 class App < Sinatra::Base
 
-  get "/" do
+  set :root, File.dirname(__FILE__)
+  set :views, 'views'
+  set :public_folder, 'public'
+
+  get '/' do
+    haml :index
+  end
+
+  get '/checkout' do
     haml :form
   end
 
-  post "/pay" do
+  post "/confirmation" do
     amount = params[:amount].to_i
     Stripe::Customer.create(
       email: params[:email],
@@ -30,6 +40,6 @@ class App < Sinatra::Base
       card: params[:stripeToken],
       description: "test payment"
     )
-    haml :thanks
+    haml :confirmation
   end
 end

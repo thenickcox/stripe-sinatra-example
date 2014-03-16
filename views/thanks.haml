@@ -1,9 +1,0 @@
-%p.thank-you
-  Thanks for your payment. You have been charged
-  = precede '$' do
-    = '%.2f' % (@charge.amount / 100.0)
-  to your
-  = @charge.card.type
-  ending in
-  = succeed '.' do
-    = @charge.card.last4

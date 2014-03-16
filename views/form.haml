@@ -1,47 +1,112 @@
-!!!
-%html
-  %head
-    %script{src: "https://js.stripe.com/v2/"}
-    %script{src: "js/jquery.js"}
-    %script{src: "js/payment.js"}
-  %body
-    %form#payment-form{action: "/pay", method: "POST"}
-      %span.payment-errors
-      .form-row
-        %label Email
-        %input{name: "email", type: "email"}
-      .form-row
-        %label Name
-        %input{name: "name", type: "text"}
-      .form-row
-        %label Address
-        %input{name: "address", type: "text"}
-      .form-row
-        %label City
-        %input{name: "city", type: "text"}
-      .form-row
-        %label State
-        %input{name: "state", type: "text"}
-      .form-row
-        %label ZIP
-        %input{name: "zip", type: "text", length: 5}
-      .form-row
-        %label Amount
-        %select#amount{name: "amount", type: "number"}
-          %option{value: "1400"} 2 8oz. bags ($14.00)
-          %option{value: "2000"} 4 8oz. bags ($20.00)
-      .form-row
-        %label
-          %span Card Number
-          %input{"data-stripe" => "number", size: "20", type: "text"}
-      .form-row
-        %label
-          %span CVC
-          %input{"data-stripe" => "cvc", size: "4", type: "text"}
-      #expiration.form-row.expiry
-        %label
-          %span Expiration (MM/YYYY)
-          %input#exp-month{"data-stripe" => "exp-month", name: "expiration-month", size: "2", type: "text"}
-          %span /
-          %input#exp-year{"data-stripe" => "exp-year", name: "expiration-year", size: "4", type: "text"}
-      %button{type: "submit"} Submit Payment
+.container
+  .row
+    .span12
+      %h1 Checkout
+      %p
+        Thanks for buying some exqusite coffee.
+      %p
+        %em Please note: This will charge your card only once for your chosen purchase amount. This is only for the pilot month; subscriptions are not available yet.
+
+      %form.form-horizontal#payment-form{action: "/pay", method: "POST", role: 'form'}
+        %span.payment-errors
+        .form-group
+          .col-sm-2
+            %label Name
+          .col-sm-10
+            %input{name: "name", type: "text", class: 'form-control'}
+        .form-group
+          .col-sm-2
+            %label Email
+          .col-sm-10
+            %input{name: "email", type: "email", class: 'form-control'}
+        .form-group
+          .col-sm-2
+            %label Address
+          .col-sm-10
+            %input{name: "address", type: "text", class: 'form-control'}
+        .form-group
+          .col-sm-2
+            %label City/State/ZIP
+          .col-sm-6
+            %label.sr-only City
+            %input{name: "city", type: "text", class: 'form-control', placeholder: 'City'}
+          .col-sm-2
+            %label.sr-only State
+            %select{name: "State"}
+              %option{selected: "selected", value: ""} Select a State
+              %option{value: "AL"} Alabama
+              %option{value: "AK"} Alaska
+              %option{value: "AZ"} Arizona
+              %option{value: "AR"} Arkansas
+              %option{value: "CA"} California
+              %option{value: "CO"} Colorado
+              %option{value: "CT"} Connecticut
+              %option{value: "DE"} Delaware
+              %option{value: "DC"} District Of Columbia
+              %option{value: "FL"} Florida
+              %option{value: "GA"} Georgia
+              %option{value: "HI"} Hawaii
+              %option{value: "ID"} Idaho
+              %option{value: "IL"} Illinois
+              %option{value: "IN"} Indiana
+              %option{value: "IA"} Iowa
+              %option{value: "KS"} Kansas
+              %option{value: "KY"} Kentucky
+              %option{value: "LA"} Louisiana
+              %option{value: "ME"} Maine
+              %option{value: "MD"} Maryland
+              %option{value: "MA"} Massachusetts
+              %option{value: "MI"} Michigan
+              %option{value: "MN"} Minnesota
+              %option{value: "MS"} Mississippi
+              %option{value: "MO"} Missouri
+              %option{value: "MT"} Montana
+              %option{value: "NE"} Nebraska
+              %option{value: "NV"} Nevada
+              %option{value: "NH"} New Hampshire
+              %option{value: "NJ"} New Jersey
+              %option{value: "NM"} New Mexico
+              %option{value: "NY"} New York
+              %option{value: "NC"} North Carolina
+              %option{value: "ND"} North Dakota
+              %option{value: "OH"} Ohio
+              %option{value: "OK"} Oklahoma
+              %option{value: "OR"} Oregon
+              %option{value: "PA"} Pennsylvania
+              %option{value: "RI"} Rhode Island
+              %option{value: "SC"} South Carolina
+              %option{value: "SD"} South Dakota
+              %option{value: "TN"} Tennessee
+              %option{value: "TX"} Texas
+              %option{value: "UT"} Utah
+              %option{value: "VT"} Vermont
+              %option{value: "VA"} Virginia
+              %option{value: "WA", selected: 'selected' } Washington
+              %option{value: "WV"} West Virginia
+              %option{value: "WI"} Wisconsin
+              %option{value: "WY"} Wyoming
+          .col-sm-2
+            %label.sr-only ZIP
+            %input{name: "zip", type: "text", size: 5, class: 'form-control', placeholder: 'ZIP code' }
+        .form-group
+          .col-sm-2
+            %label Order
+          .col-sm-5
+            %select#amount{name: "amount", type: "number"}
+              %option{value: "1400"} 2 8oz. bags ($14.00)
+              %option{value: "2000"} 4 8oz. bags ($20.00)
+        .form-group
+          .col-sm-2
+            %label Credit Card
+          .col-sm-5
+            %label.sr-only Credit Card Number
+            %input{"data-stripe" => "number", size: "20", type: "text", placeholder: 'ex: 4242424242424242', class: 'form-control'}
+          .col-sm-2
+            %label.sr-only Credit Card CVC
+            %input{"data-stripe" => "cvc", size: "4", type: "text", placeholder: 'CVC', class: 'form-control' }
+          #expiration.expiry.col-sm-3
+            %label.sr-only
+            %input#exp-month{"data-stripe" => "exp-month", name: "expiration-month", size: "2", type: "text", placeholder: '03', class: 'form-control'}
+            %span /
+            %input#exp-year{"data-stripe" => "exp-year", name: "expiration-year", size: "4", type: "text", placeholder: '2016', class: 'form-control'}
+        %button{type: "submit"} Submit Payment
