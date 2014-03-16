@@ -61,11 +61,23 @@ body {
   .hero-inner p.small a {
     color: #ad8100; }
 
+.currently {
+  background: url("../images/map.svg") center center no-repeat #ad8100;
+  color: #ad8100;
+  text-align: center;
+  height: 390px; }
+  .currently h1 {
+    padding-top: 120px;
+    color: white; }
+    .currently h1 strong, .currently h1 em {
+      color: inherit; }
+
 .explanation {
   padding-bottom: 2em; }
   .explanation h1 {
     color: #ad8100;
-    margin: 2em 0; }
+    margin: 4em 0;
+    font-size: 2.25em; }
 
 .subscription {
   border-top: 1px solid #e2e2e2;
@@ -143,10 +155,20 @@ footer {
       color: #9e7200; }
 
 /* Form */
+label, .checkout h1 {
+  color: #5d2f08; }
+
+.checkout a {
+  color: #ad8100; }
+
 .form-group {
   margin: 5px 0;
   display: inline-block;
   width: 100%; }
+
+input[type='text'], input[type='email'] {
+  background: #f0ecde;
+  color: #5d2f08; }
 
 .expiry {
   display: inline-block; }

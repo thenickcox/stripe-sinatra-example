@@ -69,11 +69,23 @@ body
     a
       color: $orange
 
+.currently
+  background: url('../images/map.svg') center center no-repeat $orange
+  color: $orange
+  text-align: center
+  height: 390px
+  h1
+    padding-top: 120px
+    color: #fff
+    strong, em
+      color: inherit
+
 .explanation
   padding-bottom: 2em
   h1
     color: $orange
-    margin: 2em 0
+    margin: 4em 0
+    font-size: 2.25em
 
 .subscription
   border-top: 1px solid #e2e2e2
@@ -148,10 +160,20 @@ footer
 
 /* Form
 
+label, .checkout h1
+  color: $brown
+
+.checkout a
+  color: $orange
+
 .form-group
   margin: 5px 0
   display: inline-block
   width: 100%
+
+input[type='text'], input[type='email']
+  background: lighten(rgb(238,234,219), 1%)
+  color: $brown
 
 .expiry
   display: inline-block
