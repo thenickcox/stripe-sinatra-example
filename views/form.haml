@@ -87,23 +87,23 @@
               %option{value: "WY"} Wyoming
           .col-sm-2
             %label.sr-only ZIP
-            %input{name: "zip", type: "text", size: 5, class: 'form-control', placeholder: 'ZIP code' }
+            %input{name: "zip", type: "text", pattern: '\d*', size: 5, class: 'form-control', placeholder: 'ZIP code' }
         .form-group
           .col-sm-2
             %label Order
           .col-sm-5
             %select#amount{name: "amount", type: "number"}
-              %option{value: "1400"} 2 8oz. bags ($14.00)
-              %option{value: "2000"} 4 8oz. bags ($20.00)
+              %option{value: "1400", selected: params[:choice] == '1400'} 2 8oz. bags ($14.00)
+              %option{value: "2000", selected: params[:choice] == '2000'} 4 8oz. bags ($20.00)
         .form-group
           .col-sm-2
             %label Credit Card
           .col-sm-5
             %label.sr-only Credit Card Number
-            %input{"data-stripe" => "number", size: "20", type: "text", placeholder: 'ex: 4242424242424242', name: 'card-number', class: 'form-control'}
+            %input{"data-stripe" => "number", size: "20", type: "text", pattern: '\d*', placeholder: 'ex: 4242424242424242', name: 'card-number', class: 'form-control'}
           .col-sm-2
             %label.sr-only Credit Card CVC
-            %input{"data-stripe" => "cvc", size: "4", type: "text", placeholder: 'CVC', class: 'form-control', name: 'cc-cvc' }
+            %input{"data-stripe" => "cvc", size: "4", type: "text", pattern: '\d*', placeholder: 'CVC', class: 'form-control', name: 'cc-cvc' }
           #expiration.expiry.col-sm-3
             %label.sr-only
             %select#exp-month{"data-stripe" => "exp-month", name: "expiration-month"}

@@ -1,6 +1,11 @@
 @import 'bootstrap.min.css'
 @import 'bootstrap-theme.min.css'
 
+.clearfix:before, .clearfix:after, .container:before, .container:after, .container-fluid:before, .container-fluid:after, .row:before, .row:after, .form-horizontal .form-group:before, .form-horizontal .form-group:after, .btn-toolbar:before, .btn-toolbar:after, .btn-group-vertical>.btn-group:before, .btn-group-vertical>.btn-group:after, .nav:before, .nav:after, .navbar:before, .navbar:after, .navbar-header:before, .navbar-header:after, .navbar-collapse:before, .navbar-collapse:after, .pager:before, .pager:after, .panel-body:before, .panel-body:after, .modal-footer:before, .modal-footer:after
+  display: table
+  content: ' '
+
+
 .span12
   padding: 10px
 
@@ -16,14 +21,17 @@ body
 
 .hero
   background: url('../images/slow-coffee-header.jpg') center center no-repeat
-  padding: 8em 0
+  display: inline-block
+  width: 100%
+  .header
+    padding: 8em 0
 
 .hero-inner
   h1
     margin: 0 auto
     font-size: 3.66em
     font-weight: 300
-    line-height: 1
+    line-height: 1.1
     color: rgb(250, 241, 210)
   span
     font-size: 70%
@@ -33,9 +41,10 @@ body
   p
     text-align: right
     position: relative
-    font-size: 11px
+    font-size: 13px
     position: relative
     top: 8em
+    color: rgb(173,129,0)
 
 .subscription
   h1
@@ -68,10 +77,11 @@ footer
     float: left
     width: 75px
 
-button
+button, a.buy
   background: rgb(93,47,8)
   padding: 8px 30px
   color: #fff
   border: none
   &:hover
     background: rgb(93,47,8) - 10
+    text-decoration: none

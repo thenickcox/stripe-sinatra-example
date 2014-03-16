@@ -1,39 +1,42 @@
--# encoding: utf-8
 .hero
-  .hero-inner
-    %h1
-      Gorgeous single origin coffees
-      %br
-      hand-delivered<span>*</span>to you weekly.
-    %p
-      %small
-        %em
-          *Hand-delivery only available in Seattle area. Elsewhere, we can make arrangements.
-          %a{ href: '' } Contact us.
+  .hero-inner.container
+    .row
+      .col-md-12.header
+        %h1
+          Gorgeous single origin coffees
+          %br
+          hand-delivered<span>*</span>to you weekly.
+        %p
+          %small
+            %em
+              *Hand-delivery only available in Seattle area. Elsewhere, we can make arrangements.
+              %a{ href: '' } Contact us.
 
 .container
-  .explanation
-    %h3 Slow Coffee curates and roasts coffees from around the world. Then we hand-roast them in micro-batches and hand-deliver them right to your doorstep.
-    %p We&rsquo;re currently piloting our subscription program and have room for 15 coffee lovers. After that, we&rsquo;ll start a waiting list.
+  .row
+    .explanation.col-md-12
+      %h3 Slow Coffee curates and roasts coffees from around the world. Then we hand-roast them in micro-batches and hand-deliver them right to your doorstep.
+      %p We&rsquo;re currently piloting our subscription program and have room for 15 coffee lovers. After that, we&rsquo;ll start a waiting list.
 
-  %section.subscription
-    %h1 Choose your subscription.
+    %section.subscription.col-md-12
+      %h1 Choose your subscription.
 
-    %section.plan
-      %h3 2 8oz bags.
-      %p <strong>Every other week</strong> we&rsquo;ll deliver a bag of exquisite coffee. It&rsquo;ll arrive in your hands the same day it&rsquo;s roasted for peak freshness.
-      %p <em>Perfect for one casual coffee drinker</em>
-      %a{ href: '/checkout' } Buy Now
+      %section.plan.col-md-6
+        %h3 2 8oz bags.
+        %p <strong>Every other week</strong> we&rsquo;ll deliver a bag of exquisite coffee. It&rsquo;ll arrive in your hands the same day it&rsquo;s roasted for peak freshness.
+        %p <em>Perfect for one casual coffee drinker</em>
+        %a{ href: '/checkout?choice=1400', class: 'buy' } Buy Now
 
-    %section.plan
-      %h3 4 8oz. bags
-      %p <strong>Each week</strong>, you&rsquo;ll get a different single origin coffee that we&rsquo;ve selected from among dozens to highlight a particular flavor profile.
-      %p <em>Perfect for one everyday coffee drinker or two casual drinkers</em>
-      %a{ href: '/checkout' } Buy Now
+      %section.plan.col-md-6
+        %h3 4 8oz. bags
+        %p <strong>Each week</strong>, you&rsquo;ll get a different single origin coffee that we&rsquo;ve selected from among dozens to highlight a particular flavor profile.
+        %p <em>Perfect for one everyday drinker or two casual drinkers</em>
+        %a{ href: '/checkout?choice=2000', class: 'buy' } Buy Now
 
-%footer
-  %p
-    &copy; 2014 Slow Coffee.
-    %a{ href: '#' } Contact
+  .row
+    %footer
+      %p
+        &copy; 2014 Slow Coffee.
+      %a{ href: '#' } Contact
 
 

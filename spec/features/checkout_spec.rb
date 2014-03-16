@@ -3,6 +3,21 @@ require_relative '../spec_helper'
 describe 'homepage', type: :feature, js: true do
 end
 
+describe 'correct choice selected', type: :feature, js: true do
+  context '14' do
+    it 'chooses the right select option' do
+      visit '/checkout?choice=1400'
+      expect(page).to have_select('amount', selected: '2 8oz. bags ($14.00)')
+    end
+  end
+  context '20' do
+    it 'chooses the right select option' do
+      visit '/checkout?choice=2000'
+      expect(page).to have_select('amount', selected: '4 8oz. bags ($20.00)')
+    end
+  end
+end
+
 describe 'successful charge', type: :feature, js: true do
   it 'works' do
     visit '/checkout'
