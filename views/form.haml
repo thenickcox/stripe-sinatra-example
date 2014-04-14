@@ -1,15 +1,11 @@
 .container
   .row
     .span12.checkout
-      %h1 Checkout
-      %p Thanks for buying some exquisite coffee.
+      %h1 Secure Checkout
+      %p Welcome aboard.
+      %p Pickup in Ballard is free. Shipping adds $2 per bag. Make your selection in the field marked &ldquo;order.&rdquo; You&rsquo;ll find all the details in the confirmation email.
       %p
-        Note that your card information will be <strong>transmitted securely to and processed</strong> by
-        = succeed ',' do
-          %a{ href: 'http://stripe.com'} Stripe.com
-        and will <strong>never be stored by our servers</strong>.
-      %p
-        %em Please note: This will charge your card only once for your chosen purchase amount. This is only for the pilot month; subscriptions are not available yet.
+        %em Please note: This will charge your card only once for your chosen purchase amount. This purchase is only for initial offering; recurring subscriptions are not available yet.
 
 
       %p All fields are required.
@@ -99,8 +95,10 @@
             %label Order
           .col-sm-5
             %select#amount{name: "amount", type: "number"}
-              %option{value: "1400", selected: params[:choice] == '1400'} 2 8oz. bags ($14.00)
-              %option{value: "2000", selected: params[:choice] == '2000'} 4 8oz. bags ($20.00)
+              %option{value: "1400", selected: params[:choice] == '1400'} 2 8oz. bags, pickup ($14.00)
+              %option{value: "1400", selected: params[:choice] == '1400'} 2 8oz. bags, shipped ($18.00)
+              %option{value: "2000", selected: params[:choice] == '2000'} 4 8oz. bags, pickup ($20.00)
+              %option{value: "2000", selected: params[:choice] == '2000'} 4 8oz. bags, shipped ($28.00)
         .form-group
           .col-sm-2
             %label Credit Card
@@ -119,5 +117,12 @@
             %select#exp-year{"data-stripe" => "exp-year", name: "expiration-year"}
               - (2014..2025).each do |year|
                 %option{ value: "#{year}"} #{year}
+        .form-group
+          .col-sm-12
+            %p
+              Your card information will be <strong>transmitted securely to and processed</strong> by
+              = succeed ',' do
+                %a{ href: 'http://stripe.com'} Stripe.com
+              and <strong>is never stored by our servers</strong>.
         %button{type: "submit"} Place Order
 
