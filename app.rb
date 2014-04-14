@@ -7,6 +7,7 @@ require 'logger'
 require 'money'
 require 'dotenv'
 require 'mandrill'
+require 'rack/ssl-enforcer'
 
 Stripe.api_key = "sk_test_AzK176W5YbWlpbJIQR8VXRNU"
 
@@ -14,6 +15,12 @@ require_relative 'lib/notifier'
 
 class App < Sinatra::Base
   Dotenv.load
+
+  configure :production do
+    set :host, 'slowcoffee.herokuapp.com'
+    set :force_ssl, true
+    use Rack::SslEnforcer
+  end
 
   set :root, File.dirname(__FILE__)
   set :views, 'views'
