@@ -10,14 +10,14 @@ class Notifier
     message = {
      subject: 'Slow Coffee Thanks You!',
      from_name: 'Slow Coffee',
-     text: "Dear #{first_name}, \n\nThank you so much for your order. You'll receive another email from us in the coming days regarding the next roast you'll receive and when to expect it. We can't wait to share this coffee with you! If you need anything at all, please let us know at info@slowcoffee.co, or feel free to reply to this email.\n\nLove & Coffee,\nNick & Dan\n\nPS -- Refer a friend, and we'll bump you up to 12oz. bags as a way to say thank you. Were you referred by someone? Let us know at info@slowcoffee.co.",
+     text: "Dear #{first_name}, \n\n Yippie!  It worked!  We got your order and you’re going to get some Slow Coffee! \n\n Thank you so much.  We’re deeply grateful for your support. \n\n You'll receive another email from us in the coming days about pick-up or shipping date (depending on your delivery choice). \n\n We can't wait to share this coffee with you! If you need anything at all, please let us know at info@slowcoffee.co, or feel free to reply to this email. \n\n Love & Coffee, \n Nick & Dan",
      to: [
        {
          email: opts[:email],
          name: opts[:name]
        }
      ],
-     from_email: 'nick@slowcoffee.co'
+     from_email: 'info@slowcoffee.co'
     }
     sending = m.messages.send message
     puts sending
