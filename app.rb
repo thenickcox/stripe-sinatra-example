@@ -9,12 +9,12 @@ require 'dotenv'
 require 'mandrill'
 require 'rack/ssl-enforcer'
 
-Stripe.api_key = "sk_test_AzK176W5YbWlpbJIQR8VXRNU"
 
 require_relative 'lib/notifier'
 
 class App < Sinatra::Base
   Dotenv.load
+  Stripe.api_key = ENV['STRIPE_API_KEY']
 
   configure :production do
     set :host, 'slowcoffee.herokuapp.com'

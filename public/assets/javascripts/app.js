@@ -6,7 +6,7 @@
  * @depend parsley.js
  */
 
-Stripe.setPublishableKey('pk_test_nnQ7qfDlvSLZe4Iv3J1HLfbd');
+Stripe.setPublishableKey('pk_live_hLAMpuPmwkwtH2VtejsA3KmJ');
 var stripeResponseHandler = function(status, response) {
   var $form = $('#payment-form');
   if (response.error) {
