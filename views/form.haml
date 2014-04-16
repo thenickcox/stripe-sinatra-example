@@ -1,128 +1,22 @@
 .container
   .row
     .span12.checkout
-      %h1 Secure Checkout
-      %p Welcome aboard.
-      %p Pickup in Ballard is free. Shipping adds $2 per bag. Make your selection in the field marked &ldquo;order.&rdquo; You&rsquo;ll find all the details in the confirmation email.
-      %p
-        %em Please note: This will charge your card only once for your chosen purchase amount. This purchase is only for initial offering; recurring subscriptions are not available yet.
-
-
-      %p All fields are required.
-      %form.form-horizontal#payment-form{action: "/pay", method: "POST", role: 'form', "data-parsley-validate" => ''}
-        .payment-errors.col-md-12
-        .form-group
-          .col-sm-2
-            %label Name
-          .col-sm-10
-            %input{name: "name", type: "text", class: 'form-control', required: ''}
-        .form-group
-          .col-sm-2
-            %label Email
-          .col-sm-10
-            %input{name: "email", type: "email", class: 'form-control', required: ''}
-        .form-group
-          .col-sm-2
-            %label Address
-          .col-sm-10
-            %input{name: "address", type: "text", class: 'form-control', required: ''}
-        .form-group
-          .col-sm-2
-            %label City/State/ZIP
-          .col-sm-6
-            %label.sr-only City
-            %input{name: "city", type: "text", class: 'form-control', placeholder: 'City', required: ''}
-          .col-sm-2
-            %label.sr-only State
-            %select{name: "state", required: ''}
-              %option{selected: "selected", value: ""} Select a State
-              %option{value: "AL"} Alabama
-              %option{value: "AK"} Alaska
-              %option{value: "AZ"} Arizona
-              %option{value: "AR"} Arkansas
-              %option{value: "CA"} California
-              %option{value: "CO"} Colorado
-              %option{value: "CT"} Connecticut
-              %option{value: "DE"} Delaware
-              %option{value: "DC"} District Of Columbia
-              %option{value: "FL"} Florida
-              %option{value: "GA"} Georgia
-              %option{value: "HI"} Hawaii
-              %option{value: "ID"} Idaho
-              %option{value: "IL"} Illinois
-              %option{value: "IN"} Indiana
-              %option{value: "IA"} Iowa
-              %option{value: "KS"} Kansas
-              %option{value: "KY"} Kentucky
-              %option{value: "LA"} Louisiana
-              %option{value: "ME"} Maine
-              %option{value: "MD"} Maryland
-              %option{value: "MA"} Massachusetts
-              %option{value: "MI"} Michigan
-              %option{value: "MN"} Minnesota
-              %option{value: "MS"} Mississippi
-              %option{value: "MO"} Missouri
-              %option{value: "MT"} Montana
-              %option{value: "NE"} Nebraska
-              %option{value: "NV"} Nevada
-              %option{value: "NH"} New Hampshire
-              %option{value: "NJ"} New Jersey
-              %option{value: "NM"} New Mexico
-              %option{value: "NY"} New York
-              %option{value: "NC"} North Carolina
-              %option{value: "ND"} North Dakota
-              %option{value: "OH"} Ohio
-              %option{value: "OK"} Oklahoma
-              %option{value: "OR"} Oregon
-              %option{value: "PA"} Pennsylvania
-              %option{value: "RI"} Rhode Island
-              %option{value: "SC"} South Carolina
-              %option{value: "SD"} South Dakota
-              %option{value: "TN"} Tennessee
-              %option{value: "TX"} Texas
-              %option{value: "UT"} Utah
-              %option{value: "VT"} Vermont
-              %option{value: "VA"} Virginia
-              %option{value: "WA", selected: 'selected' } Washington
-              %option{value: "WV"} West Virginia
-              %option{value: "WI"} Wisconsin
-              %option{value: "WY"} Wyoming
-          .col-sm-2
-            %label.sr-only ZIP
-            %input{name: "zip", type: "text", pattern: '\d*', size: 5, class: 'form-control', placeholder: 'ZIP code', required: '' }
-        .form-group
-          .col-sm-2
-            %label Order
-          .col-sm-5
-            %select#amount{name: "amount", type: "number"}
-              %option{value: "1400", selected: params[:choice] == '1400'} 2 8oz. bags, pickup ($14.00)
-              %option{value: "1800"} 2 8oz. bags, shipped ($18.00)
-              %option{value: "2000", selected: params[:choice] == '2000'} 4 8oz. bags, pickup ($20.00)
-              %option{value: "2800"} 4 8oz. bags, shipped ($28.00)
-        .form-group
-          .col-sm-2
-            %label Credit Card
-          .col-sm-5
-            %label.sr-only Credit Card Number
-            %input{"data-stripe" => "number", size: "20", type: "text", pattern: '\d*', placeholder: 'ex: 4242424242424242', name: 'card-number', required: '', 'data-parsley-length' => '[15,20]', class: 'form-control'}
-          .col-sm-2
-            %label.sr-only Credit Card CVC
-            %input{"data-stripe" => "cvc", size: "4", type: "text", pattern: '\d*', placeholder: 'CVC', class: 'form-control', name: 'cc-cvc', required: '', 'data-parsley-length' => '[3,4]' }
-          #expiration.expiry.col-sm-3
-            %label.sr-only
-            %select#exp-month{"data-stripe" => "exp-month", name: "expiration-month"}
-              - (1..12).each do |month|
-                %option{value: "#{month}"} #{month}
-            %span /
-            %select#exp-year{"data-stripe" => "exp-year", name: "expiration-year"}
-              - (2014..2025).each do |year|
-                %option{ value: "#{year}"} #{year}
-        .form-group
-          .col-sm-12
-            %p
-              Your card information will be <strong>transmitted securely to and processed</strong> by
-              = succeed ',' do
-                %a{ href: 'http://stripe.com'} Stripe.com
-              and <strong>is never stored by our servers</strong>.
-        %button{type: "submit"} Place Order
-
+      %h1 Bummer!
+      %p Our intial offering is currently full. But with any luck, we&rsquo;ll be opening up to a larger audience in the next month or so. Sign up for the waiting list, and we&rsquo;ll let you know <em>as soon as</em> there&rsquo;s room.
+      / Begin MailChimp Signup Form
+      #mc_embed_signup
+        %form#mc-embedded-subscribe-form.validate{action: "http://slowcoffee.us8.list-manage.com/subscribe/post?u=ff6ae0846b91990de9216720d&id=07e11962e6", method: "post", name: "mc-embedded-subscribe-form", novalidate: "", target: "_blank"}
+          %h2 Join Our Waiting List:
+          .mc-field-group
+            %label{for: "mce-EMAIL"}
+              Email Address:
+            %input#mce-EMAIL.required.email{name: "EMAIL", type: "email", value: ""}/
+          #mce-responses.clear
+            #mce-error-response.response{style: "display:none"}
+            #mce-success-response.response{style: "display:none"}
+          / real people should not fill this in and expect good things - do not remove this or risk form bot signups
+          %div{style: "position: absolute; left: -5000px;"}
+            %input{name: "b_ff6ae0846b91990de9216720d_07e11962e6", type: "text", value: ""}/
+          .clear
+            %input#mc-embedded-subscribe.button{name: "subscribe", type: "submit", value: "Subscribe"}/
+      / End mc_embed_signup

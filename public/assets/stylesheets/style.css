@@ -2033,6 +2033,9 @@ input[type='text'], input[type='email'] {
   background: #f0ecde;
   color: #5d2f08; }
 
+input#mce-EMAIL {
+  border: 1px solid #cccccc; }
+
 .expiry {
   display: inline-block; }
   .expiry span {
@@ -2048,7 +2051,7 @@ p.btn-container {
   text-align: center;
   margin: 2.5em 0 1em 0; }
 
-button, a.buy {
+button, a.buy, input.button {
   background: #5d2f08;
   padding: 13px 50px;
   margin: 1em auto;
@@ -2056,10 +2059,10 @@ button, a.buy {
   color: white;
   border: none; }
   @media screen and (max-width: 599px) {
-    button, a.buy {
+    button, a.buy, input.button {
       width: 100%;
       display: block; } }
-  button:hover, a.buy:hover {
+  button:hover, a.buy:hover, input.button:hover {
     background: #532500;
     text-decoration: none; }
 
