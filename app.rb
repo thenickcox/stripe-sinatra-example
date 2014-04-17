@@ -36,8 +36,9 @@ class App < Sinatra::Base
 
   post "/pay" do
     amount = params[:amount].to_i
-    Stripe::Customer.create(
+    customer = Stripe::Customer.create(
       email: params[:email],
+      card: params[:stripeToken],
       metadata: {
         name: params[:name],
         address: params[:address],
@@ -49,7 +50,7 @@ class App < Sinatra::Base
     @charge = Stripe::Charge.create(
       amount: amount,
       currency: "usd",
-      card: params[:stripeToken],
+      customer: customer.id,
       description: "Slow Coffee"
     )
     Thread.new { Notifier.new.deliver(email: params[:email], name: params[:name], amount: params[:amount]) }
